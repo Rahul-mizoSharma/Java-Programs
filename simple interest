@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class simpleinterest {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		float Principle;
+		float Rate;
+		float Time;
+		float simpleinterest;
+		
+		System.out.println("Enter the Principle money ");
+		Principle = sc.nextFloat();
+		
+		System.out.println("Enter the Rate at which money is borrowed ");
+		Rate = sc.nextFloat();
+		
+		System.out.println("Enter the time ");
+		Time = sc.nextFloat();
+		
+		simpleinterest = (Principle * Rate* Time)/100;
+		System.out.println("The simpleinterest is = " +simpleinterest);
+		
+	}
+
+}
