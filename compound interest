@@ -1,0 +1,25 @@
+mport java.util.Scanner;
+
+public class compopundinterest {
+	public static void main(String[] args) {
+	
+		Scanner sc = new Scanner(System.in);
+		
+		double principle;
+		double rate;
+		double time;
+		
+		System.out.println("Enter the principle amount:");
+		principle = sc.nextDouble();
+		
+		System.out.println("Enter the rate at which the money is borrowed:");
+		rate = sc.nextDouble();
+		
+		System.out.println("Enter the time period:");
+		time = sc.nextDouble();
+		
+		double compoundinterest = principle*(Math.pow((1+rate/100), time));
+		System.out.println("The compound interest is "+compoundinterest);
+	}
+
+}
