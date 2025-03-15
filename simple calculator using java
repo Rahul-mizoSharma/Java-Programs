@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class simplecalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double num1, num2, result;
+        char operator;
+
+        while (true) {
+            System.out.println("\n**** Simple Calculator ****\n");
+            System.out.println("Enter first number: ");
+            num1 = scanner.nextDouble();
+
+            System.out.println("Enter an operator (+, -, *, /): ");
+            operator = scanner.next().charAt(0);
+
+            System.out.println("Enter second number: ");
+            num2 = scanner.nextDouble();
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    System.out.printf("%.2f + %.2f = %.2f%n", num1, num2, result);
+                    break;
+
+                case '-':
+                    result = num1 - num2;
+                    System.out.printf("%.2f - %.2f = %.2f%n", num1, num2, result);
+                    break;
+
+                case '*':
+                    result = num1 * num2;
+                    System.out.printf("%.2f * %.2f = %.2f%n", num1, num2, result);
+                    break;
+
+                case '/':
+                    if (num2 != 0) {
+                        result = num1 / num2;
+                        System.out.printf("%.2f / %.2f = %.2f%n", num1, num2, result);
+                    } else {
+                        System.out.println("Error: Cannot divide by zero!");
+                    }
+                    break;
+
+                default:
+                    System.out.println("Error: Invalid operator!");
+                    break;
+            }
+
+            System.out.println("\nDo you want to perform another calculation? (y/n)");
+            char choice = scanner.next().charAt(0);
+            if (choice == 'n' || choice == 'N') {
+                break;
+            }
+        }
+
+        System.out.println("Thank you for using the calculator!");
+        scanner.close();
+    }
+} 
