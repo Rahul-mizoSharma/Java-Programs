@@ -1,0 +1,38 @@
+
+public class PatternPrograms {
+	public static void main(String [] args) {
+		
+		
+		
+		int i,j;
+		int n=3;
+		
+		for(i=1; i<=n; i++) {
+			for(j=1; j<= n-i+2; j++) {
+				System.out.print("* ");
+			}
+			for(j=1; j<=4; j++) {
+				System.out.print("  ");
+			}
+			
+			for(j=1; j<=i; j++) {
+				System.out.print("* ");
+			}
+			
+			for(j=1; j<=n-i+1; j++) {
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+		
+		n=1;
+		for(i=1; i<=n; i++) {
+			for(j=1; j<=9; j++) {
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+	}
+	
+
+}
