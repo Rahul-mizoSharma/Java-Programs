@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Armstrong {
+	
+	public static void main(String [] args) {
+		
+		int n;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter the value of the number :");
+		n= sc.nextInt();
+		
+		int len = length(n);
+		System.out.println(len);
+		sc.close();
+	}
+	
+	   static int length(int n) {
+			int len=0;
+		   while(n!=0) {
+			   n=n/10;
+			   len++;
+		   }
+		   return len;
+	   }
+
+}
