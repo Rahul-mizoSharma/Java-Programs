@@ -1,0 +1,42 @@
+import java.util.Scanner;
+public class DemoProgram {
+	public static void main(String[]args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int n;
+		
+		System.out.println("Enter the count of the element: ");
+		n=sc.nextInt();
+		
+		int [] pos = new int[100];
+		int [] neg = new int [100];
+		
+		System.out.println("Enter the elements in the array: ");
+		
+		int i,x;
+		for(i=0;i<=n-1;i++) {
+			x = sc.nextInt();
+			
+			if(x>=0) {
+				pos[x]++;
+			}
+			else {
+				x=x*-1;
+				neg[x]++;
+			}
+		}
+		
+		System.out.println();
+		System.out.println("Enter the search element: ");
+		
+		x = sc.nextInt();
+		if(x>=0) {
+			System.out.println("The element is present "+pos[x]+ "times");
+		}
+		else {
+			x = x*-1;
+			System.out.println("The element is present "+neg[x]+ "times");
+		}
+		
+	}
+}
