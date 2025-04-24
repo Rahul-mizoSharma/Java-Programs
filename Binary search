@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class DemoProgram {
+	public static void main(String[]args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int n;
+		System.out.println("Enter the size of the element: ");
+		n = sc.nextInt();
+		
+		int [] a = new int[n];
+		System.out.println("Enter the elements in the array: ");
+		
+		for(int i=0;i<=a.length-1;i++) {
+			a[i]= sc.nextInt();
+		}
+		System.out.println("Enter the search element: ");
+		int x = sc.nextInt();
+		
+		int left, right, mid;
+		left=0;
+		right=a.length-1;
+		
+		while(left<=right) {
+			mid = (left+right)/2;
+			
+			if(x==a[mid]) {
+				System.out.println("Element found in the array");
+				return;
+			}
+			else if(x>a[mid]) {
+				left = mid+1;
+			}
+			else {
+				right = mid-1;
+			}
+		}
+		System.out.println("Element not found in the array");
+	}
+}
