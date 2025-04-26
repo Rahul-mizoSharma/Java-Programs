@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class StringPrograms {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the String:");
+		char[] a = sc.next().toCharArray();
+		
+		int i,j;
+		char c;
+		
+		for(j=0;j<=a.length-1;j++) {
+			for(i=0;i<=a.length-2;i++) {
+				if(a[i]>a[i+1]) {
+					
+					c = a[i];
+					a[i] = a[i+1];
+					a[i+1] = c;
+				}
+			}
+		}
+		System.out.println(a);
+		sc.close();
+	}
+
+}
