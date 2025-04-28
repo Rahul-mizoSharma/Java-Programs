@@ -1,0 +1,42 @@
+import java.util.Scanner;
+public class DemoProgram {
+	public static void main(String[]args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the size of the elements: ");
+		int n = sc.nextInt();
+		
+		int [] pos = new int[1000];
+		int [] neg = new int[1000];
+		
+		System.out.println("Enter the elemets in the array: ");
+		for(int i=0; i<=n-1; i++) {
+			
+			int x= sc.nextInt();
+			if (x>0) {
+				pos[x]++;
+			}
+			else {
+				x=x*-1;
+				neg[x]++;
+			}
+			
+		}
+		System.out.println("The order of the element in the array is:");
+		for(int i=999; i>=0; i--) {
+			if (neg[i]!=0) {
+				for(int j=0; j<=neg[i]-1;j++) {
+				System.out.print((i*-1)+" "); 
+				}
+			}
+		}
+		 for(int i=0;i<=999;i++) {
+			if(pos[i]!=0) {
+				for(int j=0; j<=pos[i]-1; j++) {
+				System.out.print(i+" ");
+				}
+			}
+		}
+	}
+}
