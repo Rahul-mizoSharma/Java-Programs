@@ -1,0 +1,48 @@
+package in.package1;
+
+
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+
+public class Signup {
+	
+	
+	static void createAccount() throws ClassNotFoundException, SQLException {
+	@SuppressWarnings("resource")
+	Scanner sc = new Scanner(System.in);
+	
+	Statement stmt = ConnectionClass.giveConnection().createStatement();
+	
+	System.out.println("Connection established:");
+	
+	System.out.println("enter the name:");
+	String name =  sc.next();
+	
+	System.out.println("enter the email:");
+	String email = sc.next();
+	
+	double bal = sc.nextDouble();
+	
+	System.out.println("enter the mobile number:");
+	long mob = sc.nextLong();
+	
+	System.out.println("enter te password");
+	int pass = sc.nextInt();
+	
+	String iqry = "insert into User.Signup(name,email,balance,mobile,password)values('"+name+"','"+email+"','"+bal+"','"+mob+"','"+pass+"')";
+	
+	int res = stmt.executeUpdate(iqry);
+	
+	if(res>0) {
+		System.out.println("signup successful");
+	}
+	else {
+		System.out.println("signup failed");
+		}
+	}
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		createAccount();
+	}
+}
