@@ -31,7 +31,7 @@ public class Signup {
 	System.out.println("enter te password");
 	int pass = sc.nextInt();
 	
-	String iqry = "insert into User.Signup(name,email,balance,mobile,password)values('"+name+"','"+email+"','"+bal+"','"+mob+"','"+pass+"')";
+	String iqry = "insert into schemaname.tablename(name,email,balance,mobile,password)values('"+name+"','"+email+"','"+bal+"','"+mob+"','"+pass+"')";
 	
 	int res = stmt.executeUpdate(iqry);
 	
