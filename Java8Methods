@@ -1,0 +1,61 @@
+package io;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Stream;
+
+class Emp{
+	String name;
+	String deg;
+	Emp(String name, String deg){
+		this.name = name ;
+		this.deg = deg;
+	}
+	@Override
+	public String toString() {
+		return name +" "+ deg;
+	}
+}
+
+public class StreamAPI {
+
+	public static void main(String[] args) {
+		List<Integer> nums = Arrays.asList(1,2,3,4,5,6);
+		Stream<Integer> stream = nums.stream();
+		
+		stream
+		.filter(i->(i%2 ==0 ))
+		.forEach(System.out::println);;
+		
+		List<Integer> odd =  nums
+				.stream()
+				.filter(i->(i%2 !=0))
+				.toList();
+				odd.forEach(System.out::println);
+		List<Employee> emps = Arrays.asList(
+				new Employee("rahul","developer"),
+				new Employee("Tarun","Developer"),
+				new Employee("raj","UI/UX"),
+				new Employee("rohit","developer")
+				);
+		
+		List<Employee> Aemps = emps.stream().filter(e->(e.name.startsWith("r"))).toList();
+		Aemps.forEach(System.out::println);
+		List<Employee> DevList = emps.stream().filter(e->(e.deg.equalsIgnoreCase("developer"))).toList();
+		DevList.forEach(System.out::println);
+		
+		emps.stream()
+			.map(e->e.name.toUpperCase())
+			.forEach(System.out::println);
+		
+		nums.stream()
+			.map(n->n*n)
+			.forEach(System.out::println);
+		
+	
+		emps.stream()
+		.sorted(Comparator.comparing(Employee::getName).reversed())
+		.forEach(System.out::println);
+	}
+}
