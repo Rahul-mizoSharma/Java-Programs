@@ -12,7 +12,7 @@ class DebitCard {
 		System.out.println("Making Payment using Debit Card");
 	}
 	
-public class MethodReference{
+ class MethodReference{
 	public static void main(String[] args) {
 		
 		DebitCard dc = new DebitCard();
