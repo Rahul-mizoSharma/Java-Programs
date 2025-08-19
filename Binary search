@@ -5,7 +5,7 @@ public class DemoProgram {
 		Scanner sc = new Scanner(System.in);
 		
 		int n;
-		System.out.println("Enter the size of the element: ");
+		System.out.println("Enter the size of the array: ");
 		n = sc.nextInt();
 		
 		int [] a = new int[n];
