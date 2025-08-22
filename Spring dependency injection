@@ -1,11 +1,8 @@
-
 #Account.java#
 public interface Account {
-	
 	default void accountType() {
 		
 	}
-	
 	class SavingAccount implements Account{
 		
 		@Override
@@ -13,7 +10,6 @@ public interface Account {
 		System.out.println("this is a saving account");
 		}
 	}
-	
 	class CurrentAccount implements Account{
 		@Override
 		public void accountType() {
@@ -21,3 +17,33 @@ public interface Account {
 		}
 	}
 }
+
+
+#Customer.java#
+public class Customer {
+	
+	long accNo;
+	Account ca;
+	
+	void createAccount() 
+	{
+		ca.accountType();
+	}
+	
+	public long getAccNo() 
+	{
+		return accNo;
+	}
+	public void setAccNo(long accNo) {
+		this.accNo = accNo;
+	}
+	public Account getAcc() {
+		return ca;
+	}
+	public void setAcc(Account ca) {
+		this.ca = ca;
+	}
+	
+
+}
+
