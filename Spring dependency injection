@@ -1,0 +1,23 @@
+
+#Account.java#
+public interface Account {
+	
+	default void accountType() {
+		
+	}
+	
+	class SavingAccount implements Account{
+		
+		@Override
+		public void accountType() {
+		System.out.println("this is a saving account");
+		}
+	}
+	
+	class CurrentAccount implements Account{
+		@Override
+		public void accountType() {
+		System.out.println("this is a Current account");
+		}
+	}
+}
