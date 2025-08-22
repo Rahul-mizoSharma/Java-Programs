@@ -43,7 +43,25 @@ public class Customer {
 	public void setAcc(Account ca) {
 		this.ca = ca;
 	}
+}
+
+#CustomerMain.java#
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class CustomerMain {
 	
+	public static void main(String[] args) {
+		
+		@SuppressWarnings("resource")
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("Bean.xml");
+		
+		Customer c = ctx.getBean(Customer.class);
+		c.setAccNo(123456795847l);
+		System.out.println("Account");
+		c.createAccount();
+	}
 
 }
+
 
