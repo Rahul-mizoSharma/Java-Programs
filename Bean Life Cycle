@@ -90,10 +90,8 @@ public class Main {
 		System.out.println("container is getting started");
 //		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("LifeCycle.xml");
 		
-		
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-		
-		
+
 		Address a =ctx.getBean(Address.class);
 		a.setCity("Mysore");
 		a.setState("Karnataka");
@@ -106,6 +104,5 @@ public class Main {
 		
 		ctx.close();
 	}
-
 }
 
