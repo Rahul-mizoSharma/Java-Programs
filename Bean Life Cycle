@@ -1,0 +1,126 @@
+#Person.java#
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.stereotype.Component;
+
+//import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
+
+@Component
+public class Person implements InitializingBean,DisposableBean {
+	
+		String pname;
+		Address address;
+		
+		
+		Person(Address address)
+		{
+			System.out.println("Dependency injected");
+			this.address=address;
+		}
+
+
+		public String getPname() {
+			return pname;
+		}
+		public void setPname(String pname) {
+			this.pname = pname;
+		}
+		
+		
+//		@PostConstruct
+//		public void initMethod()
+//		{
+//			System.out.println("init() method is called");
+//		}
+		
+		@PreDestroy
+		public void destroyMethod()
+		{
+			System.out.println("destroy() method is called");
+		}
+
+
+		@Override
+		public void afterPropertiesSet() throws Exception {
+			// TODO Auto-generated method stub
+			System.out.println("afterPropertiesSet() method is called");	
+		}
+
+
+		@Override
+		public void destroy() throws Exception {
+			// TODO Auto-generated method stub	
+		}
+		
+}
+
+
+#Address.java#
+import org.springframework.stereotype.Component;
+
+@Component
+public class Address {
+	
+	String city;
+	String state;
+	
+	
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+
+}
+
+
+#AppConfig.java#
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan
+public class AppConfig {
+
+}
+
+
+#Main.java#
+//import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+//import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Main {
+	public static void main(String[] args) {
+		
+		System.out.println("container is getting started");
+//		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("LifeCycle.xml");
+		
+		
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+		
+		
+		Address a =ctx.getBean(Address.class);
+		a.setCity("Mysore");
+		a.setState("Karnataka");
+		Person p = ctx.getBean(Person.class);
+		p.setPname("Rahul");
+		
+		System.out.println("Person Details");
+		System.out.println(p.address.getCity() + " " +p.address.getState());
+		System.out.println(p.pname);
+		
+		ctx.close();
+	}
+
+}
+
