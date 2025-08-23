@@ -5,29 +5,22 @@ import org.springframework.stereotype.Component;
 
 //import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-
-
 @Component
 public class Person implements InitializingBean,DisposableBean {
 	
 		String pname;
 		Address address;
-		
-		
 		Person(Address address)
 		{
 			System.out.println("Dependency injected");
 			this.address=address;
 		}
-
-
 		public String getPname() {
 			return pname;
 		}
 		public void setPname(String pname) {
 			this.pname = pname;
 		}
-		
 		
 //		@PostConstruct
 //		public void initMethod()
@@ -41,19 +34,16 @@ public class Person implements InitializingBean,DisposableBean {
 			System.out.println("destroy() method is called");
 		}
 
-
 		@Override
 		public void afterPropertiesSet() throws Exception {
 			// TODO Auto-generated method stub
 			System.out.println("afterPropertiesSet() method is called");	
 		}
 
-
 		@Override
 		public void destroy() throws Exception {
 			// TODO Auto-generated method stub	
-		}
-		
+		}	
 }
 
 
