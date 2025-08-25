@@ -27,7 +27,6 @@ public class AppConfig {
 	public Engine getEngine() {
 		return new Engine();
 	}
-	
 	@Bean(name="car")
 	public Car getCar() {
 		return new Car();
