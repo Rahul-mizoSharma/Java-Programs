@@ -5,10 +5,7 @@ public class Car {
 	
 	@Autowired
 	Engine engine;
-	
-	
 		void move() {
-	
 			engine.start();
 			System.out.println("car is moving");
 		}
