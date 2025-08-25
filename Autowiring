@@ -1,0 +1,53 @@
+#Car.java#
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class Car {
+	
+	@Autowired
+	Engine engine;
+	
+	
+		void move() {
+	
+			engine.start();
+			System.out.println("car is moving");
+		}
+}
+
+#Engine.java#
+public class Engine {
+	void start() {
+		System.out.println("Engine has started:");
+	}
+
+}
+#AppConfig.java#
+import org.springframework.context.annotation.Bean;
+
+public class AppConfig {
+	
+	@Bean(name="engine")
+	public Engine getEngine() {
+		return new Engine();
+	}
+	
+	@Bean(name="car")
+	public Car getCar() {
+		return new Car();
+	}
+}
+#AppMain.java#
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class AppMain {
+	
+	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+		
+		Car c = (Car) ctx.getBean("Car");
+		c.move();
+	}
+
+}
