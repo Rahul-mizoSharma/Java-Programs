@@ -41,7 +41,6 @@ public class AppMain {
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-		
 		Car c = (Car) ctx.getBean("Car");
 		c.move();
 	}
